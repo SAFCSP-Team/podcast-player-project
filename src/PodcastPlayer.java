@@ -39,20 +39,19 @@ public class PodcastPlayer {
       }
   }
   public void previous(){
-      if(this.top == this.start){
-          System.out.println("going back is impossible");
-      }else{
-          System.out.println("podcast name: "+ this.top.prev.pod.name+ " podcast channel: "+ this.top.prev.pod.channel + " " + "podcast speaker: "+ this.top.prev.pod.speaker + " podcast guest: " + this.top.prev.pod.guests + "podcast duration"+ this.top.prev.pod.duration);
-      }
-  }
-
-  public void printAll(){
-
-      Node curr = this.start;
-      while(curr != null){
-          System.out.println("podcast name: "+ curr.pod.name +  " podcast speaker: "+ curr.pod.speaker + " podcast guest: " + curr.pod.guests + " podcast duration"+ curr.pod.duration);
-          curr = curr.next;
-      }
-  }
+    if(this.top == this.start){
+        System.out.println("going back is impossible");
+    }else{
+        this.top = this.top.prev;
+        play();
+    }
+}
+public void printAll(){
+    Node curr = this.top;
+    while(curr != null){
+        System.out.println("podcast name: "+ curr.pod.name +  " podcast speaker: "+ curr.pod.speaker + " podcast guest: " + curr.pod.guests + " podcast duration"+ curr.pod.duration);
+        curr = curr.prev;
+    }
+}
 
   }
